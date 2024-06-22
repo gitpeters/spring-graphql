@@ -1,0 +1,23 @@
+type ProductResponse{
+    id: ID,
+    productName:String,
+    productCategory:String,
+    price:Float,
+    stock:Int
+}
+
+type Query{
+    getAllProducts:[ProductResponse],
+    getProductsByCategory(category:String):[ProductResponse]
+}
+
+type Mutation{
+    saveNewProduct(productName:String,
+        productCategory:String,
+        price:Float,
+        stock:Int):ProductResponse,
+    updateProductStock(id: ID,stock:Int):ProductResponse,
+    deleteProduct(id: ID): Boolean
+}
+
+
